@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --clr-primary: rgb(237, 100, 124);
+    --clr-secondary: hsl(16, 83%, 61%);
+    --clr-error: hsl(6, 71%, 95%);
+    --clr-success: hsl(106, 93%, 95%);
+    --clr-dark-gray: hsl(234, 29%, 20%);
+    --clr-charcoal-gray: hsl(235, 18%, 26%);
+    --clr-gray: hsl(231, 7%, 60%);
+    --clr-white: hsl(0, 0%, 100%);
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.5;
+    background: var(--clr-charcoal-gray);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+main {
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.container {
+    max-width: 1440px;
+    height: 100%;
+    margin-inline: auto;
+    .card {
+        background: var(--clr-white);
+        .card__img {
+            width: 100%;
+        }
+        .card__body {
+            padding: 2rem;
+            .card__header {
+                font-size: 2.5rem;
+                margin-bottom: .75rem;
+            }
+            .card__subtext {
+                margin-bottom: 1rem;
+                color: var(--clr-charcoal-gray);
+            }
+            & ul {
+                list-style: none inside;
+                margin-bottom: 4rem;
+                .card__list {
+                    display: flex;
+                    align-items: flex-start;
+                    color: var(--clr-charcoal-gray);
+                    margin-top: 1rem;
+                }
+                .card__bullet {
+                    display: inline;
+                    margin-right: .75rem;
+                }
+            }
+            .card__email__box {
+                position: relative;
+            }
+            .card__form__label {
+                position: absolute;
+                left: 0;
+                top: 0;
+                transform: translateY(-1.5rem);
+                font-size: .75rem;
+                font-weight: 700;
+                display: inline-block;
+            }
+            .card__error__label {
+                position: absolute;
+                right: 0;
+                top: 0;
+                transform: translateY(-1.5rem);
+                font-size: .75rem;
+                display: none;
+                color: red;
+            }
+            .card__form__input {
+                border: 1px solid #cdcdcd;
+                outline: none;
+                display: block;
+                margin-bottom: 1.5rem;
+                padding: 1.25em;
+                border-radius: 5px;
+                width: 100%;
+                &:focus {
+                    border: 1px solid var(--clr-dark-gray);
+                }
+            }
+            .card__form__btn {
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 1.5em 1em;
+                background: var(--clr-dark-gray);
+                color: var(--clr-white);
+                font-weight: 700;
+                display: block;
+                border-radius: 8px;
+                width: 100%;
+                &:hover, &:focus {
+                    background: linear-gradient(to right, var(--clr-primary), var(--clr-secondary));
+                    box-shadow: 0 5px 20px var(--clr-primary);
+                }
+            }
+        }
+    }
+}
+
+.card__success {
+    position: relative;
+    background: var(--clr-white);
+    padding: 2rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-inline: auto;
+    .card__icon {
+        align-self: flex-start;
+        margin-bottom: 2rem;
+    }
+    .card__success__header {
+        font-size: 3rem;
+        line-height: 1;
+        margin-bottom: 1rem;
+    }
+    .card__success__body {
+        font-size: .9rem;
+        margin-bottom: 2rem;
+    }
+    .card__success__email {
+        font-weight: 700;
+    }
+    .card__success__btn {
+        position: absolute;
+        bottom: 0;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 1.25em 1em;
+        background: var(--clr-dark-gray);
+        color: var(--clr-white);
+        display: block;
+        border-radius: 8px;
+        letter-spacing: 1px;
+        width: 85%;
+        margin-bottom: 1rem;
+        font-size: .85rem;
+        &:hover, &:focus {
+            background: linear-gradient(to right, var(--clr-primary), var(--clr-secondary));
+            box-shadow: 0 5px 20px var(--clr-primary);
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        display: grid;
+        place-items: center;
+        .card {
+            border-radius: 30px;
+            display: flex;
+            padding: 1rem;
+            align-items: center;
+            justify-content: flex-end;
+            flex-direction: row-reverse;
+            .card__body {
+                padding-left: 2rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                .card__header {
+                    font-size: 3.5rem;
+                }
+                & ul {
+                    width: 100%;
+                    .card__list {
+                        align-items: center;
+                        margin-top: 0;
+                    }
+                    .card__bullet {
+                        margin-right: 1rem;
+                        padding-top: .5rem;
+                    }
+                }
+                .card__email__box {
+                    position: relative;
+                }
+                .card__error__label {
+                    right: 5.8rem;
+                }
+                .card__form__input {
+                    margin-bottom: 1rem;
+                    width: 80%;
+                }
+                .card__form__btn {
+                    width: 80%;
+                }
+            }
+        }
+    }
+    
+    .card__success {
+        border-radius: 30px;
+        justify-content: center;
+        max-width: 420px;
+        margin-inline: auto;
+        height: auto;
+        .card__success__btn {
+            position: static;
+            width: 100%;
+        }
+    }
+}
